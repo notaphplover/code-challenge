@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier --write ./src",
+    "lint": "eslint --ext ts --ignore-path .gitignore .",
     "test": "jest --config=jest.ts.config.js --selectProjects Unit Integration",
     "test:js": "jest --config=jest.js.config.js --selectProjects Unit Integration"
   },
