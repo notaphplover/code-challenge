@@ -8,6 +8,7 @@
     "format": "prettier --write ./src",
     "lint": "eslint --ext ts --ignore-path .gitignore .",
     "prepare": "husky install",
+    "start": "node ./dist/scripts/startServer.js",
     "test": "jest --config=jest.ts.config.js --selectProjects Unit Integration",
     "test:master": "npm run test -- --changedSince=origin/master",
     "test:previous": "npm run test -- --changedSince=HEAD~1",
