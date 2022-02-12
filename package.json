@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc",
     "format": "prettier --write ./src",
-    "test": "test"
+    "test": "jest --config=jest.ts.config.js --selectProjects Unit Integration",
+    "test:js": "jest --config=jest.js.config.js --selectProjects Unit Integration"
   },
   "repository": {
     "type": "git",
