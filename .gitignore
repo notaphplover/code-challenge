@@ -6,3 +6,6 @@ dist/
 
 ### Visual Studio Code ###
 .vscode
+
+### env files
+src/config/.env
