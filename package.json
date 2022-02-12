@@ -4,6 +4,7 @@
   "description": "Joyn code challenge solution",
   "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "test"
   },
   "repository": {
