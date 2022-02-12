@@ -7,6 +7,7 @@
     "build": "tsc",
     "format": "prettier --write ./src",
     "lint": "eslint --ext ts --ignore-path .gitignore .",
+    "prepare": "husky install",
     "test": "jest --config=jest.ts.config.js --selectProjects Unit Integration",
     "test:js": "jest --config=jest.js.config.js --selectProjects Unit Integration"
   },
@@ -28,6 +29,7 @@
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^26.1.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
     "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
