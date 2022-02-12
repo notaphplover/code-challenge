@@ -1,5 +1,8 @@
 # npm installed packages
 node_modules/
 
+# Typescript compiled files
+dist/
+
 ### Visual Studio Code ###
 .vscode
