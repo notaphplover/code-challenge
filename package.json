@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/joyn-engineering/movie-metadata-service_Roberto_Pintos_L-pez/issues"
   },
-  "homepage": "https://github.com/joyn-engineering/movie-metadata-service_Roberto_Pintos_L-pez#readme"
+  "homepage": "https://github.com/joyn-engineering/movie-metadata-service_Roberto_Pintos_L-pez#readme",
+  "devDependencies": {
+    "typescript": "~4.5.5"
+  }
 }
