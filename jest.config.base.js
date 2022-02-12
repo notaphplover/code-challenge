@@ -6,7 +6,13 @@
  * @param { !Array<string> } testPathIgnorePatterns Expressions to match to ignored file paths by jest
  * @returns { !import("@jest/types/build/Config").GlobalConfig } Jest config
  */
- function getJestProjectConfig(projectName, collectCoverageFrom, roots, testMatch, testPathIgnorePatterns) {
+function getJestProjectConfig(
+  projectName,
+  collectCoverageFrom,
+  roots,
+  testMatch,
+  testPathIgnorePatterns,
+) {
   const projectConfig = {
     displayName: projectName,
     collectCoverageFrom: collectCoverageFrom,
@@ -36,7 +42,11 @@
  * @param { ?string } extension Test extension to match
  * @returns { !import("@jest/types/build/Config").GlobalConfig } Jest config
  */
-function getJestJsProjectConfig(projectName, testPathIgnorePatterns, extension) {
+function getJestJsProjectConfig(
+  projectName,
+  testPathIgnorePatterns,
+  extension,
+) {
   const root = getJestJsProjectRoot();
   const testMatch = [getTestMatch(root, extension)];
   const collectCoverageFrom = [`${root}/**/*.js`];
@@ -60,7 +70,7 @@ function getJestTsProjectRoot() {
 /**
  * @returns { !string }
  */
- function getJestJsProjectRoot() {
+function getJestJsProjectRoot() {
   return '<rootDir>/dist';
 }
 
@@ -70,18 +80,27 @@ function getJestTsProjectRoot() {
  * @param { ?string } extension Test extension to match
  * @returns { !import("@jest/types/build/Config").GlobalConfig } Jest config
  */
-function getJestTsProjectConfig(projectName, testPathIgnorePatterns, extension) {
+function getJestTsProjectConfig(
+  projectName,
+  testPathIgnorePatterns,
+  extension,
+) {
   const root = getJestTsProjectRoot();
   const testMatch = [getTestMatch(root, extension)];
   const collectCoverageFrom = [`${root}/**/*.js`];
 
-  return getJestProjectConfig(
-    projectName,
-    collectCoverageFrom,
-    [root],
-    testMatch,
-    testPathIgnorePatterns,
-  );
+  return {
+    ...getJestProjectConfig(
+      projectName,
+      collectCoverageFrom,
+      [root],
+      testMatch,
+      testPathIgnorePatterns,
+    ),
+    transform: {
+      '^.+\\.ts?$': 'ts-jest',
+    },
+  };
 }
 
 /**
@@ -93,4 +112,4 @@ function getTestMatch(root, testExtension) {
   return `${root}/**/*${testExtension}`;
 }
 
-module.exports = { getJestJsProjectConfig, getJestTsProjectConfig }
+module.exports = { getJestJsProjectConfig, getJestTsProjectConfig };
