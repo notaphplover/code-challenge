@@ -9,6 +9,8 @@
     "lint": "eslint --ext ts --ignore-path .gitignore .",
     "prepare": "husky install",
     "test": "jest --config=jest.ts.config.js --selectProjects Unit Integration",
+    "test:master": "npm run test -- --changedSince=origin/master",
+    "test:previous": "npm run test -- --changedSince=HEAD~1",
     "test:js": "jest --config=jest.js.config.js --selectProjects Unit Integration"
   },
   "repository": {
