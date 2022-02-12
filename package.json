@@ -1,0 +1,19 @@
+{
+  "name": "movie-metadata-service",
+  "version": "0.0.1",
+  "description": "Joyn code challenge solution",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joyn-engineering/movie-metadata-service_Roberto_Pintos_L-pez.git"
+  },
+  "author": "Roberto Pintos López",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joyn-engineering/movie-metadata-service_Roberto_Pintos_L-pez/issues"
+  },
+  "homepage": "https://github.com/joyn-engineering/movie-metadata-service_Roberto_Pintos_L-pez#readme"
+}
