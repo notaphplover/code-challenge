@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 
-import { EnvLoader } from '../../domain/EnvLoader';
+import { EnvLoader } from '../../../domain/adapter/EnvLoader';
 
 export abstract class DotEnvLoader<T> implements EnvLoader<T> {
   protected innerIndex: T | undefined;
