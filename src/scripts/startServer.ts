@@ -7,7 +7,6 @@ import {
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
 import { FastifyServerOptions } from 'fastify';
-import fastifyHelmet from 'fastify-helmet';
 
 import { AppModule } from '../app/integration/nest/module/AppModule';
 
@@ -30,17 +29,6 @@ async function startServer(): Promise<void> {
     );
 
   nestApplication.setGlobalPrefix('api');
-
-  await nestApplication.register(fastifyHelmet, {
-    contentSecurityPolicy: {
-      directives: {
-        defaultSrc: ["'self'"],
-        imgSrc: ["'self'"],
-        scriptSrc: ["'self'", "https: 'unsafe-inline'"],
-        styleSrc: ["'self'", "'unsafe-inline'"],
-      },
-    },
-  });
 
   const serverPort: number = 3000;
   const serverHost: string = '0.0.0.0';

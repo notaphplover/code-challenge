@@ -1,7 +1,7 @@
 {
-  "name": "movie-metadata-service",
+  "name": "courses-service",
   "version": "0.0.1",
-  "description": "Joyn code challenge solution",
+  "description": "Busuu code challenge solution",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -14,16 +14,8 @@
     "test:previous": "npm run test -- --changedSince=HEAD~1",
     "test:js": "jest --config=jest.js.config.js --selectProjects Unit Integration"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joyn-engineering/movie-metadata-service_Roberto_Pintos_L-pez.git"
-  },
   "author": "Roberto Pintos López",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/joyn-engineering/movie-metadata-service_Roberto_Pintos_L-pez/issues"
-  },
-  "homepage": "https://github.com/joyn-engineering/movie-metadata-service_Roberto_Pintos_L-pez#readme",
   "devDependencies": {
     "@types/jest": "^27.4.0",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
@@ -55,7 +47,6 @@
     "@nestjs/platform-fastify": "^8.2.6",
     "dotenv": "^16.0.0",
     "fastify": "3.27.0",
-    "fastify-helmet": "^7.0.1",
     "got": "^12.0.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.4"
