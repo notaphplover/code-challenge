@@ -8,6 +8,7 @@ import {
 } from '@nestjs/platform-fastify';
 import { FastifyServerOptions } from 'fastify';
 
+import { AppConfig } from '../app/domain/config/AppConfig';
 import { AppModule } from '../app/integration/nest/module/AppModule';
 
 async function startServer(): Promise<void> {
@@ -30,10 +31,9 @@ async function startServer(): Promise<void> {
 
   nestApplication.setGlobalPrefix('api');
 
-  const serverPort: number = 3000;
-  const serverHost: string = '0.0.0.0';
+  const appConfig: AppConfig = nestApplication.get(AppConfig);
 
-  await nestApplication.listen(serverPort, serverHost);
+  await nestApplication.listen(appConfig.port, appConfig.host);
 }
 
 void startServer();
