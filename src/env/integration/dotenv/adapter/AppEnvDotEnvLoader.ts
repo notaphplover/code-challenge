@@ -15,7 +15,8 @@ export class AppEnvDotEnvLoader extends DotEnvLoader<AppEnv> {
 
   protected parseIndex(): AppEnv {
     return {
-      OMDB_API_KEY: env['OMDB_API_KEY'] as string,
+      HTTP_SERVER_HOST: env['HTTP_SERVER_HOST'] as string,
+      HTTP_SERVER_PORT: parseInt(env['HTTP_SERVER_PORT'] as string),
     };
   }
 }
