@@ -1,9 +1,12 @@
 import path from 'path';
 import { env } from 'process';
 
-import { AppEnv } from '../../../domain/model/AppEnv';
-import { DotEnvLoader } from './DotEnvLoader';
+import { Injectable } from '@nestjs/common';
 
+import { DotEnvLoader } from '../../../../env/integration/dotenv/adapter/DotEnvLoader';
+import { AppEnv } from '../../../domain/model/AppEnv';
+
+@Injectable()
 export class AppEnvDotEnvLoader extends DotEnvLoader<AppEnv> {
   constructor() {
     super(AppEnvDotEnvLoader.getTestEnvPath());
