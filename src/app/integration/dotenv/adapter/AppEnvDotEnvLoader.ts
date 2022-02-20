@@ -13,7 +13,16 @@ export class AppEnvDotEnvLoader extends DotEnvLoader<AppEnv> {
   }
 
   private static getTestEnvPath(): string {
-    return path.resolve(__dirname, '..', '..', '..', 'config', '.env');
+    return path.resolve(
+      __dirname,
+      '..',
+      '..',
+      '..',
+      '..',
+      '..',
+      'config',
+      '.env',
+    );
   }
 
   protected parseIndex(): AppEnv {
