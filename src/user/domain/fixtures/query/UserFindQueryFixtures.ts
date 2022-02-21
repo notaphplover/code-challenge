@@ -1,8 +1,21 @@
+import { User } from '../../model/User';
 import { UserFindQuery } from '../../query/UserFindQuery';
+import { UserFixtures } from '../model/UserFixtures';
 
 export class UserFindQueryFixtures {
   public static get any(): UserFindQuery {
     const userFindQuery: UserFindQuery = {};
+
+    return userFindQuery;
+  }
+
+  public static get withIds(): UserFindQuery {
+    const userFixture: User = UserFixtures.any;
+
+    const userFindQuery: UserFindQuery = {
+      ...UserFindQueryFixtures.any,
+      ids: [userFixture.id],
+    };
 
     return userFindQuery;
   }

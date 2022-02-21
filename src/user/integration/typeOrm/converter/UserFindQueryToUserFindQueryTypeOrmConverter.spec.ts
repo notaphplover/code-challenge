@@ -27,6 +27,48 @@ describe(UserFindQueryToUserFindQueryTypeOrmConverter.name, () => {
       > as jest.Mocked<QueryBuilder<UserTypeOrm> & WhereExpressionBuilder>;
     });
 
+    describe('having an UserFindQuery with ids', () => {
+      let userFindQueryFixture: UserFindQuery;
+
+      beforeAll(() => {
+        userFindQueryFixture = UserFindQueryFixtures.withIds;
+      });
+
+      describe('when called', () => {
+        let result: unknown;
+
+        beforeAll(() => {
+          result = userFindQueryToUserFindQueryTypeOrmConverter.convert(
+            userFindQueryFixture,
+            queryBuilderMock,
+          );
+        });
+
+        afterAll(() => {
+          jest.clearAllMocks();
+        });
+
+        it('should call queryBuilder.setParameter()', () => {
+          expect(queryBuilderMock.setParameter).toHaveBeenCalledTimes(1);
+          expect(queryBuilderMock.setParameter).toHaveBeenCalledWith(
+            'ids',
+            userFindQueryFixture.ids,
+          );
+        });
+
+        it('should call queryBuilder.andWhere()', () => {
+          expect(queryBuilderMock.andWhere).toHaveBeenCalledTimes(1);
+          expect(queryBuilderMock.andWhere).toHaveBeenCalledWith(
+            expect.stringContaining(':ids'),
+          );
+        });
+
+        it('should return a QueryBuilder', () => {
+          expect(result).toBe(queryBuilderMock);
+        });
+      });
+    });
+
     describe('having an UserFindQuery with name', () => {
       let userFindQueryFixture: UserFindQuery;
 

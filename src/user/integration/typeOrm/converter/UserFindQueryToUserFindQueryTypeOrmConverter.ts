@@ -21,6 +21,12 @@ export class UserFindQueryToUserFindQueryTypeOrmConverter
     let resultingQueryBuilder: QueryBuilder<UserTypeOrm> &
       WhereExpressionBuilder = queryBuilder;
 
+    if (userFindQuery.ids !== undefined) {
+      resultingQueryBuilder = resultingQueryBuilder
+        .setParameter('ids', userFindQuery.ids)
+        .andWhere(`${UserTypeOrm.name}.id IN (:ids)`);
+    }
+
     if (userFindQuery.name !== undefined) {
       resultingQueryBuilder = resultingQueryBuilder
         .setParameter('name', userFindQuery.name)
