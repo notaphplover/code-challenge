@@ -1,3 +1,3 @@
 export interface UserFindQuery {
-  name: string;
+  name?: string;
 }
