@@ -44,6 +44,10 @@ describe(UserFindQueryToUserFindQueryTypeOrmConverter.name, () => {
           );
         });
 
+        afterAll(() => {
+          jest.clearAllMocks();
+        });
+
         it('should call queryBuilder.setParameter()', () => {
           expect(queryBuilderMock.setParameter).toHaveBeenCalledTimes(1);
           expect(queryBuilderMock.setParameter).toHaveBeenCalledWith(
