@@ -9,6 +9,7 @@ import {
 import { FindAdapter } from '../../../domain/adapter/FindAdapter';
 import { Converter } from '../../../domain/converter/Converter';
 import { FindQueryToFindQueryTypeOrmConverter } from '../converter/FindQueryToFindQueryTypeOrmConverter';
+import { FindQueryToPaginatedFindQueryTypeOrmConverter } from '../converter/FindQueryToPaginatedFindQueryTypeOrmConverter';
 import { FindQueryWithQueryBuilderToFindQueryTypeOrmConverter } from '../converter/FindQueryWithQueryBuilderToFindQueryTypeOrmConverter';
 
 @Injectable()
@@ -18,10 +19,9 @@ export class FindTypeOrmAdapter<TModel, TModelDb, TQuery>
   constructor(
     private readonly repository: Repository<TModelDb>,
     private readonly modelDbToModelConverter: Converter<TModelDb, TModel>,
-    private readonly findQueryToFindQueryTypeOrmConverter: FindQueryToFindQueryTypeOrmConverter<
-      TModelDb,
-      TQuery
-    >,
+    private readonly findQueryToFindQueryTypeOrmConverter:
+      | FindQueryToFindQueryTypeOrmConverter<TModelDb, TQuery>
+      | FindQueryToPaginatedFindQueryTypeOrmConverter<TModelDb, TQuery>,
   ) {}
 
   public async find(query: TQuery): Promise<TModel[]> {

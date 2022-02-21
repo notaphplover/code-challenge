@@ -7,6 +7,7 @@ import {
 
 import { Converter } from '../../../domain/converter/Converter';
 import { FindQueryToFindQueryTypeOrmConverter } from '../converter/FindQueryToFindQueryTypeOrmConverter';
+import { FindQueryToPaginatedFindQueryTypeOrmConverter } from '../converter/FindQueryToPaginatedFindQueryTypeOrmConverter';
 import { FindTypeOrmAdapter } from './FindTypeOrmAdapter';
 
 interface ModelTest {
@@ -21,7 +22,8 @@ describe(FindTypeOrmAdapter.name, () => {
   let queryBuilderMock: jest.Mocked<SelectQueryBuilder<ModelTest>>;
   let repositoryMock: jest.Mocked<Repository<ModelTest>>;
   let findQueryToFindQueryTypeOrmConverterMock: jest.Mocked<
-    FindQueryToFindQueryTypeOrmConverter<ModelTest, QueryTest>
+    | FindQueryToFindQueryTypeOrmConverter<ModelTest, QueryTest>
+    | FindQueryToPaginatedFindQueryTypeOrmConverter<ModelTest, QueryTest>
   >;
   let modelDbToModelConverter: jest.Mocked<Converter<ModelTest, ModelTest>>;
 
