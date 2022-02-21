@@ -11,7 +11,7 @@ import { UserTypeOrm } from '../../../../user/integration/typeOrm/model/UserType
 
 @Entity('Exercise')
 export class ExerciseTypeOrm {
-  @PrimaryColumn({ length: 36, name: 'id', type: 'varchar' })
+  @PrimaryColumn({ name: 'id', type: 'uuid' })
   public id!: string;
 
   @Column({ name: 'content', type: 'text' })
