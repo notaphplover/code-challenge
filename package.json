@@ -7,13 +7,18 @@
     "build": "tsc",
     "format": "prettier --write ./src",
     "lint": "eslint --ext ts --ignore-path .gitignore .",
+    "migrations:create": "npm run typeorm -- migration:create -n",
+    "migrations:down": "npm run typeorm -- migration:revert",
+    "migrations:generate": "npm run typeorm -- migration:generate -n",
+    "migrations:run": "npm run typeorm -- migration:run",
     "prepare": "husky install",
     "start": "node ./dist/scripts/startServer.js",
     "start:dev": "node -r ts-node/register ./src/scripts/startServer.ts",
     "test": "jest --config=jest.ts.config.js --selectProjects Unit Integration",
     "test:master": "npm run test -- --changedSince=origin/master",
     "test:previous": "npm run test -- --changedSince=HEAD~1",
-    "test:js": "jest --config=jest.js.config.js --selectProjects Unit Integration"
+    "test:js": "jest --config=jest.js.config.js --selectProjects Unit Integration",
+    "typeorm": "node ./dist/scripts/typeOrmCli.js"
   },
   "author": "Roberto Pintos López",
   "license": "MIT",
@@ -51,6 +56,7 @@
     "dotenv": "^16.0.0",
     "fastify": "3.27.0",
     "got": "^12.0.1",
+    "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.4",
     "typeorm": "^0.2.43"
