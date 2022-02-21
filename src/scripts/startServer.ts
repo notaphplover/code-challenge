@@ -8,8 +8,8 @@ import {
 } from '@nestjs/platform-fastify';
 import { FastifyServerOptions } from 'fastify';
 
-import { AppConfig } from '../app/domain/config/AppConfig';
 import { AppModule } from '../app/integration/nest/module/AppModule';
+import { AppConfig } from '../appEnv/domain/config/AppConfig';
 
 async function startServer(): Promise<void> {
   const fastifyServerOptions: FastifyServerOptions<http.Server> = {

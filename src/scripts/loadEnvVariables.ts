@@ -1,9 +1,9 @@
 import { INestApplicationContext } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
-import { AppEnv } from '../app/domain/model/AppEnv';
-import { AppEnvDotEnvLoader } from '../app/integration/dotenv/adapter/AppEnvDotEnvLoader';
 import { AppModule } from '../app/integration/nest/module/AppModule';
+import { AppEnv } from '../appEnv/domain/model/AppEnv';
+import { AppEnvDotEnvLoader } from '../appEnv/integration/dotenv/adapter/AppEnvDotEnvLoader';
 import { EnvLoader } from '../env/domain/adapter/EnvLoader';
 
 export async function loadEnvVariables(): Promise<void> {
