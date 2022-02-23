@@ -1,6 +1,6 @@
 import http from 'http';
 
-import { NestApplicationOptions } from '@nestjs/common';
+import { NestApplicationOptions, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import {
   FastifyAdapter,
@@ -29,6 +29,7 @@ async function startServer(): Promise<void> {
       nestApplicationOptions,
     );
 
+  nestApplication.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   nestApplication.setGlobalPrefix('api');
 
   const appConfig: AppConfig = nestApplication.get(AppConfig);
