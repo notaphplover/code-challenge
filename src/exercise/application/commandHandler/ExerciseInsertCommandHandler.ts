@@ -11,7 +11,7 @@ import { ExerciseInsertCommand } from '../command/ExerciseInsertCommand';
 
 @CommandHandler(ExerciseInsertCommand)
 export class ExerciseInsertCommandHandler
-  implements ICommandHandler<ExerciseInsertCommand, Exercise>
+  implements ICommandHandler<ExerciseInsertCommand, void>
 {
   constructor(
     @Inject(FindManyExercisesManager)
@@ -28,7 +28,7 @@ export class ExerciseInsertCommandHandler
 
   public async execute(
     exerciseInsertCommand: ExerciseInsertCommand,
-  ): Promise<Exercise> {
+  ): Promise<void> {
     const maximunExercisesPerUser: number = 10;
 
     const exerciseFindQuery: ExerciseFindQuery = {
@@ -51,10 +51,6 @@ export class ExerciseInsertCommandHandler
       userId: exerciseInsertCommand.userId,
     };
 
-    const exercise: Exercise = await this.insertExerciseManager.manage(
-      exerciseInsertQuery,
-    );
-
-    return exercise;
+    await this.insertExerciseManager.manage(exerciseInsertQuery);
   }
 }
